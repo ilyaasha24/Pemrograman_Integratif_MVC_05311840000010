@@ -32,4 +32,4 @@ Views
   donasi: halaman untuk menambah, menampilkan, mencari(filter), dan menghapus donasi.
   rekap : halaman utama, tampilan rekapitulasi donasi.
 
-### [Gambar Dokumentasi](/../../img/)
+### [Gambar Dokumentasi](/../../tree/master/img)
