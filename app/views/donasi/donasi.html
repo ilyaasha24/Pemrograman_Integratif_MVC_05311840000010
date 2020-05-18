@@ -1,0 +1,102 @@
+ 
+<div class="container col">
+  <div class="row">
+      <div class="col mt-3">
+          <h3>Status Bantuan</h3>
+          <div class="row">
+              <div class="col">
+                  <form action="{{ BASE_URL }}/donasi/search" method="post">
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="Cari donasi berdasarkan nama"  id="keyword" name="keyword">
+                          <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit">Cari</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+                  <form action="{{ BASE_URL }}/donasi/searchByJenis" method="post">
+                      <div class="input-group mb-3">
+                          <input type="text" class="form-control" placeholder="Cari donasi berdasarkan jenis"  id="keyword" name="keyword">
+                          <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit">Cari</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      <div class="col mb-3 text-center">
+          <button type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#formModal">
+              Tambahkan Donasi
+          </button>
+      </div>
+
+          <ul class="list-group">
+              {% for donasi in donasis %}
+              <li class="list-group-item">
+                  {{ donasi['NamaDonatur'] }}
+                  <a href="{{ BASE_URL }}/donasi/delete/{{ donasi['IdBantuan'] }}" class="badge badge-danger float-right ml-1" onclick="return confirm('yakin?');">delete</a>
+
+                  <a href="{{ BASE_URL }}/donasi/show/{{ donasi['IdBantuan'] }}" class="badge badge-primary float-right ml-1">show</a>
+              </li>
+              {% endfor %}
+              
+          </ul>
+          
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
+  <form action="{{BASE_URL}}/donasi/add" method="POST">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="judulModal">Formulir Donasi</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+
+                  <div class="form-group">
+                      <label for="title">Kategori Bantuan</label>
+                      <input type="text" class="form-control" id="title" name="title"
+                          placeholder="Masukkan Kategori Bantuan">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="description">Nama Donatur</label>
+                      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                      <label for="place">Bentuk Bantuan</label>
+                      <input type="text" class="form-control" id="place" name="place"
+                          placeholder="Masukkan Bentuk Bantuan">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="spot">Jumlah Bantuan</label>
+                      <input type="text" class="form-control" id="spot" name="spot"
+                          placeholder="Masukkan Jumlah Bantuan">
+                  </div>
+
+                  <div class="form-group">
+                      <label for="location">Tanggal</label>
+                      <input type="text" class="form-control" id="time" name="time"
+                          placeholder="YYYY-MM-DD HH:MM">
+                  </div>                
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-primary">Tambah Data</button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+ 
+{% block title %}Rekap{% endblock %}
+ 
+{% block body %}
+
+<table class="table table-dark">
+    <thead class="thead">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Kategori Bantuan</th>
+        <th scope="col">Nama Donatur</th>
+        <th scope="col">Bentuk Bantuan</th>
+        <th scope="col">Jumlah Bantuan</th>
+        <th scope="col">Tanggal Transaksi</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for donasi in donasis %}
+
+      <tr>
+        <th scope="row">{{ donasi['IdBantuan'] }}</th>
+        <td>{{ donasi['KategoriBantuan'] }}</td>
+        <td>{{ donasi['NamaDonatur'] }}</td>
+        <td>{{ donasi['BentukBantuan'] }}</td>
+        <td>{{ donasi['JumlahBantuan'] }}</td>
+        <td>{{ donasi['Date'] }}</td>
+      </tr>
+
+    {% endfor %}
+
+    </tbody>
+  </table>
+
+  {% endblock %}

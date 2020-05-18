@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+ 
+{% block title %}Deskripsi{% endblock %}
+ 
+{% block body %}
+ 
+<div class="container mt-4">
+    <h1>Deskripsi Transaksi</h1>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ donasi['NamaDonatur'] }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted"> {{ donasi['Date'] }}</h6>
+            <p class="text">Kategori Bantuan: {{ donasi['KategoriBantuan'] }}</p>
+            <p class="text">Bentuk Bantuan: {{ donasi['BentukBantuan'] }}</p>
+            <p class="text">Jumlah Bantuan: {{ donasi['JumlahBantuan'] }}</p>
+            <a href="{{ BASE_URL }}/donasi">Kembali</a>
+        </div>
+    </div>
+</div>
+ 
+{% endblock %}
